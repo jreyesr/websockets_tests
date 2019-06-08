@@ -64,3 +64,10 @@ This example allows multiple clients to control a single data acquisition server
 1. Type either "STOP" or "START" on the any client's second input box to pause and restart the data collection, respectively. Press the "Send" button to submit the command.
 1. When you send "START", both text boxes will start filling with server mock data (from a fake "sensor"). When you send "STOP", both text boxes will stop filling.
 1. The server console should log any commands that it received.
+
+## test6
+
+This example adds live data plots on the client side.
+
+1. Follow the instructions for test5.
+1. When you start the data acquisition, all client tabs will start updating at the same time. When you stop it, all client tabs will stop too. You can change between tabs and check that they have the same graph.

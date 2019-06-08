@@ -1,0 +1,81 @@
+    
+    
+    
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+    </head>
+    <body>
+        <p>
+            <input type="text" id="ip" value="localhost"/>
+            <button onclick="connect()">Connect</button>
+        </p>
+        <p>
+            <input type="text" id="command" value="START"/>
+            <button onclick="request()">Send</button>
+        </p>
+        
+        <p>
+            <div id="chartContainer" style="height: 370px; width:100%;"></div>
+        </p>
+           
+        <script>
+            var ws_comm, ws_data;
+            
+            function connect(event) {
+                ws_comm = new WebSocket("ws://"+document.getElementById("ip").value+":5678/commands/");
+                
+                ws_data = new WebSocket("ws://"+document.getElementById("ip").value+":5678/stream_data/");
+                ws_data.onmessage = function (event) {
+                    updateChart(parseFloat(event.data.split(",")[1]));
+                };
+            }
+            
+            function request(event) {
+                ws_comm.send(document.getElementById("command").value)
+            }
+        </script>
+        
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script>
+        
+        var dps = []; // dataPoints
+        
+        var chart = new CanvasJS.Chart("chartContainer", {
+	        title: {
+		        text: "Sensor Data"
+	        },
+	        axisX: {
+	            title: "Data point index"
+            },
+	        axisY: {
+		        includeZero: true,
+		        title: "Magnitude [units]"
+	        },      
+	        data: [{
+		        type: "line",
+		        dataPoints: dps
+	        }]
+        });
+        
+        var xVal = 0;
+        var dataLength = 20; // number of dataPoints visible at any point
+        
+        var updateChart = function (newVal) {
+	        dps.push({
+		        x: xVal,
+		        y: newVal
+	        });
+	        xVal++;
+
+	        while (dps.length > dataLength) {
+		        dps.shift();
+	        }
+
+	        chart.render();
+        };
+        </script>
+    </body>
+</html>
