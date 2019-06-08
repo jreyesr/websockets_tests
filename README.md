@@ -53,3 +53,14 @@ This example uses two different WebSockets, one for control (client sends comman
 This example is functionally identical to test4, but it uses a different architecture for the websockets, which should be cleaner and easier to understand.
 
 1. Follow the instructions for test4.
+
+## test5
+
+This example allows multiple clients to control a single data acquisition server. Some collected data is sent to all clients at once. The server program also logs all received data to a file, but clients only receive a subset of the data.
+
+1. Run `python server.py` on the console.
+1. Open `client.html` on two tabs of web browser _on another device!_.
+1. On both tabs, type the server's IP address on the client's first input box. Press the "Connect" button and hope that it connects...
+1. Type either "STOP" or "START" on the any client's second input box to pause and restart the data collection, respectively. Press the "Send" button to submit the command.
+1. When you send "START", both text boxes will start filling with server mock data (from a fake "sensor"). When you send "STOP", both text boxes will stop filling.
+1. The server console should log any commands that it received.
