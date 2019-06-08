@@ -36,3 +36,15 @@ This example tests cross-device communications. It is almost the same as test2, 
 1. Type the server's IP address on the client's first input box. Press the "Connect" button and hope that it connects...
 1. Type either "GET\_TIME" or "GREET\_ME" on the client's second input box. Press the "Send" button.
 1. The server console should log the request. The client should display the server response below the input box.
+
+## test4
+
+This example uses two different WebSockets, one for control (client sends commands to server) and one for data (server pushes data to client). This emulates a data acquisition system which allows the user to see the live data and simultaneously control the acquisition.
+
+1. Run `python server.py` on the console.
+1. Open `client.html` on a web browser _on another device!_.
+1. Type the server's IP address on the client's first input box. Press the "Connect" button and hope that it connects...
+1. Type either "STOP" or "START" on the client's second input box to pause and restart the data collection, respectively. Press the "Send" button to submit the command.
+1. When you send "START", the text box will start filling with server mock data (from a fake "sensor"). When you send "STOP", the text box will stop filling.
+1. The server console should log any commands that it received.
+

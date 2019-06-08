@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+    </head>
+    <body>
+        <p>
+            <input type="text" id="ip"/>
+            <button onclick="connect()">Connect</button>
+        </p>
+        <p>
+            <input type="text" id="command"/>
+            <button onclick="request()">Send</button>
+        </p>
+        
+        <textarea id="response" cols="80" rows="10">
+        </textarea>
+    
+        <script>
+            var ws_comm, ws_data;
+            var response = document.getElementById("response");
+            
+            function connect(event) {
+                ws_comm = new WebSocket("ws://"+document.getElementById("ip").value+":5678/");
+                ws_comm.onopen = function (event) {
+                    ws_comm.send("COMMS");
+                };
+                
+                ws_data = new WebSocket("ws://"+document.getElementById("ip").value+":5678/");
+                ws_data.onopen = function (event) {
+                    ws_data.send("DATA");
+                };
+                ws_data.onmessage = function (event) {
+                    response.value += event.data + "\n";
+                    response.scrollTop = response.scrollHeight;
+                };
+            }
+            
+            function request(event) {
+                ws_comm.send(document.getElementById("command").value)
+            }
+        </script>
+    </body>
+</html>
