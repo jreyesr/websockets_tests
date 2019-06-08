@@ -26,3 +26,13 @@ This example tests two-way communications between client and server. The server 
 1. Open `client.html` on a web browser.
 1. Type either "GET\_TIME" or "GREET\_ME" on the client's input box. Press the "Send" button.
 1. The server console should log the request. The client should display the server response below the input box.
+
+## test3
+
+This example tests cross-device communications. It is almost the same as test2, but it can communicate across a network.
+
+1. Run `python server.py` on the console.
+1. Open `client.html` on a web browser _on another device!_.
+1. Type the server's IP address on the client's first input box. Press the "Connect" button and hope that it connects...
+1. Type either "GET\_TIME" or "GREET\_ME" on the client's second input box. Press the "Send" button.
+1. The server console should log the request. The client should display the server response below the input box.
