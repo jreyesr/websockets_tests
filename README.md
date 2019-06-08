@@ -48,3 +48,8 @@ This example uses two different WebSockets, one for control (client sends comman
 1. When you send "START", the text box will start filling with server mock data (from a fake "sensor"). When you send "STOP", the text box will stop filling.
 1. The server console should log any commands that it received.
 
+## test4b
+
+This example is functionally identical to test4, but it uses a different architecture for the websockets, which should be cleaner and easier to understand.
+
+1. Follow the instructions for test4.
