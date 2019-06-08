@@ -71,3 +71,10 @@ This example adds live data plots on the client side.
 
 1. Follow the instructions for test5.
 1. When you start the data acquisition, all client tabs will start updating at the same time. When you stop it, all client tabs will stop too. You can change between tabs and check that they have the same graph.
+
+## test7
+
+This example adds buttons to start and stop data collection, instead of the text box, plus a legend at the bottom of the graph.
+
+1. Follow the instructions for test6.
+1. You will not need to type commands. You will find two buttons for starting and stopping the data collection.
