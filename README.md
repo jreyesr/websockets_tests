@@ -78,3 +78,9 @@ This example adds buttons to start and stop data collection, instead of the text
 
 1. Follow the instructions for test6.
 1. You will not need to type commands. You will find two buttons for starting and stopping the data collection.
+
+## test8
+
+This example adds a sensor which sends multiple data fields at once (maybe a 3-axis accelerometer?). Also, sensors now send a timestamp with their messages.
+
+1. Follow the instructions for test7.
