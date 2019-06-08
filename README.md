@@ -84,3 +84,13 @@ This example adds buttons to start and stop data collection, instead of the text
 This example adds a sensor which sends multiple data fields at once (maybe a 3-axis accelerometer?). Also, sensors now send a timestamp with their messages.
 
 1. Follow the instructions for test7.
+
+## test9
+
+This example (sorta) hijacks the WebSockets server to also serve the dashboard HTML. You can now simply visit the URL `<the_server_ip>:5678` on the client to get the dashboard.
+
+1. Run `python server.py` on the console.
+1. Open a browser on the client, navigate to `<the_server_ip>:5678` or `<the_server_ip>:5678/dashboard`. The browser will show the console.
+1. Type the same IP address that you typed above on the input box. Don't include the `:5678/dashboard` part, just the IP. Click on "Connect".
+1. Click the Start button to begin displaying data, and the Stop button to pause it.
+1. You can open multiple tabs of the dashboard, even on multiple computers. After you connect to the server, they will all update at once, and you can control the server from any one of them.
